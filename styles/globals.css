@@ -1,26 +1,42 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+    width: 100vw;
+}
+.page {
+    @apply bg-gray-50 h-screen w-full px-6 py-6 flex flex-col overflow-x-auto;
+}
+.actions {
+    @apply w-full flex flex-row justify-end mb-8;
+}
+.actions .btn {
+    @apply text-gray-500 bg-gray-100  font-medium rounded-md  drop-shadow-xl shadow py-3 px-6;
+}
+.title {
+    @apply text-4xl mb-5 text-gray-500 font-semibold;
+    text-shadow: 0.1em 0.2em 0.2em rgb(180, 180, 180);
+}
+.table {
+    @apply w-full text-sm text-left shadow-2xl rounded-lg;
+}
+.thead {
+    @apply text-xs text-gray-800 uppercase bg-gray-200 shadow-inner;
+}
+.tbody {
+    @apply bg-gray-50 text-gray-500 font-medium shadow-inner;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/**
+/* Pagination
+*/
+.pagination {
+    @apply flex flex-row justify-center mt-28 font-semibold;
 }
-
-* {
-  box-sizing: border-box;
+.pagination button {
+    @apply px-3 py-2 text-gray-500 bg-gray-100 font-bold rounded-full drop-shadow-xl shadow mx-2;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.pagination button.current {
+    @apply bg-gray-200 text-gray-800;
 }
